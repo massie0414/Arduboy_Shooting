@@ -24,13 +24,17 @@ Character::Character(
     h = hh;
 }
 
+// プレイヤーのグラフィックデータ
 const uint8_t bmp_player[8] PROGMEM = {
     0,16,150,121,121,150,16,0
 };
 
+// プレイヤーの初期位置と大きさ
+Character player(10,28,8,8);
+
 void setup() {
-  arduboy.begin();
-  arduboy.setFrameRate(15);
+    arduboy.begin();
+    arduboy.setFrameRate(60);
 }
 
 void loop() {
@@ -40,8 +44,7 @@ void loop() {
 
     arduboy.clear();
 
-    Character player(10,28,8,8);
-
+    // プレイヤーの描画
     arduboy.drawBitmap(
         player.x,
         player.y,
